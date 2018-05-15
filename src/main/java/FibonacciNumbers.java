@@ -4,8 +4,15 @@ import java.util.List;
 
 public class FibonacciNumbers {
 
-    File file = new File("C:\\New folder\\index.txt");
-
+    public File getFile(String path) {
+        File file = new File(path);
+        if (file.exists()) {
+            return file;
+        } else {
+            System.out.println("File doesn't exist!");
+        }
+        return file;
+    }
 
     public List<Integer> listWithFibonacciNumbers(int count) {
         int n0 = 1;
@@ -34,7 +41,7 @@ public class FibonacciNumbers {
 
     }
 
-    public void writeFibonacciNumbers(List<Integer> list) {
+    public void writeFibonacciNumbers(List<Integer> list, String path) {
         StringBuffer text = new StringBuffer();
         for (Integer number : list) {
             text = text.append(number.toString());
@@ -43,7 +50,7 @@ public class FibonacciNumbers {
 
 
         try {
-            FileWriter fileWriter = new FileWriter(file);
+            FileWriter fileWriter = new FileWriter(getFile(path));
             fileWriter.write(String.valueOf(text));
             fileWriter.close();
         } catch (IOException ex) {
@@ -54,12 +61,12 @@ public class FibonacciNumbers {
 
     }
 
-    public String readFibonacciNumbers() {
+    public String readFibonacciNumbers(String path) {
 
         BufferedReader reader = null;
 
         try {
-            reader = new BufferedReader(new FileReader(file));
+            reader = new BufferedReader(new FileReader(getFile(path)));
             String s;
             StringBuilder sb = new StringBuilder();
             while ((s = reader.readLine()) != null) {
@@ -79,7 +86,6 @@ public class FibonacciNumbers {
 
     }
 
-
     public List<Integer> getListWithFibonacciNumbers(String text) {
         ArrayList<Integer> list = new ArrayList<Integer>();
         String[] masString;
@@ -96,13 +102,13 @@ public class FibonacciNumbers {
 
     }
 
-    public boolean checkFibonacciNumbersFromFile(List<Integer> list){
+    public boolean checkFibonacciNumbersFromFile(List<Integer> list) {
         boolean result = false;
-        for (int i = list.size(); i > 3; i--){
-            if ( list.get(list.size()-1) == ( list.get(list.size() - 2) + list.get(list.size() - 3)))    {
+        for (int i = list.size(); i > 3; i--) {
+            if (list.get(list.size() - 1) == (list.get(list.size() - 2) + list.get(list.size() - 3))) {
                 result = true;
             }
-       }
+        }
         return result;
 
     }

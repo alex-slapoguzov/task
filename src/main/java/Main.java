@@ -4,8 +4,8 @@ public class Main {
      //  fibonacciNumbers.writeFibonacciNumbers(fibonacciNumbers.listWithFibonacciNumbers(15));
 
 
-        System.out.println(fibonacciNumbers.getListWithFibonacciNumbers(fibonacciNumbers.readFibonacciNumbers()));
-        System.out.println(fibonacciNumbers.checkFibonacciNumbersFromFile(fibonacciNumbers.getListWithFibonacciNumbers(fibonacciNumbers.readFibonacciNumbers())));
+        System.out.println(fibonacciNumbers.getListWithFibonacciNumbers(fibonacciNumbers.readFibonacciNumbers("C:\\New folder\\index.txt")));
+        System.out.println(fibonacciNumbers.checkFibonacciNumbersFromFile(fibonacciNumbers.getListWithFibonacciNumbers(fibonacciNumbers.readFibonacciNumbers("C:\\New folder\\index.txt"))));
 
         }
     }
