@@ -8,6 +8,7 @@ public class Tests {
     FibonacciNumbers fibonacciNumbers = new FibonacciNumbers();
     int count = 10;
     String textToCheck = "1 1 2 3 5 8 13 21 34 55 89 144 233 377 610  ";
+    String path = "C:\\New folder\\index.txt";
 
     @Test
     public void testListWithFibonacciNumbers(){
@@ -18,7 +19,7 @@ public class Tests {
 
     @Test
     public void testReadFibonacciNumbers(){
-      String text =  fibonacciNumbers.readFibonacciNumbers("C:\\New folder\\index.txt");
+      String text =  fibonacciNumbers.readFibonacciNumbers(path);
         Assert.assertEquals(text, textToCheck);
 
     }
